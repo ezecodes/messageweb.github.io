@@ -1,0 +1,863 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>The Table</title>
+	<meta name="author" content="">
+	<meta name="description" content="table web,the table,bride message">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="styles/style.css">
+	<script src="jquery-3.5.1.js"></script>
+
+</head>
+<body>
+<section class="main">
+	<section class="side-page" id="sd-pg">
+		<section class="sermon-index">
+				<aside id="prv" class="tophgt"><!-- <li class="fa qhui"></li> --></aside>
+			<header class="side-hdr">
+				<div class="hdr-h1 dark-grey">
+					<h1>SERMON INDEX</h1>
+				</div>
+				<div id="side-hdr02" class="light-grey">
+					<div class="side-icons">
+						<div class="ico-wrap currentBg">
+							<div class="side-ico">
+								<span class="fa fa-date" title="Sort by date"></span>
+							</div>
+						</div>
+						<div class="ico-wrap" title="Sort by title">
+							<div class="side-ico">
+								<span class="fa fa-alphabeticaly"></span>
+							</div>
+						</div>
+						<div class="ico-wrap">
+							<div class="side-ico">
+								<span class="fa fa-time" title="Sort by duration"></span>
+							</div>
+						</div>
+						<!-- <div class="ico-wrap">
+							<div class="side-ico">
+								<span class="fa fa-group"></span>
+							</div>
+						</div> -->
+						<div class="ico-wrap">
+							<div class="side-ico">
+								<span class="fa fa-globe"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<section class="search-bar light-grey">
+				<div class="input sec02">
+					<input name="searchField" placeholder="Search Date or Title" class="dark-grey" spellcheck="true" id="searchField">
+				</div>
+			</section>
+
+			<div class="yearOpts">
+				<div class="scroll-opts dark-grey">
+					<div class="opts01">
+						<span>Scroll To:</span>
+						<span class="fa close" id="spanIco">&nbsp;Year</span>
+						<div id="list1" class="common-list currentList">
+							<ol></ol>
+						</div>
+						<div id="list2" class="common-list">
+							<ol></ol>
+						</div>
+						<div id="list3" class="common-list">
+							<ol></ol>
+						</div>
+					</div>
+					<div id="tab01">
+						<span class="fa" id="back"></span>
+						<span id="locHeader"></span>
+					</div>
+				</div>
+			</div>
+			<section class="sermon-list">
+				<!-- <aside class="tophgt">
+					<li class="fa qhui" id="prv"></li><li class="fa qhui" id="nxt"></li>
+				</aside> -->
+				<div class="sm-wrap">
+					<ol id="oList">
+						<li class="sm-list" id="row-1">
+							<ul class="sm-lft">
+								<li class="sm-title">Faith is The Substance</li>
+								<li class="sm-code">47-0412</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:43</li>
+								<li class="sm-location">Oakland CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-2">
+							<ul class="sm-lft">
+								<li class="sm-title">Fellowship</li>
+								<li class="sm-code">47-1100X</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:08</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-3">
+							<ul class="sm-lft">
+								<li class="sm-title">The Angel Of God</li>
+								<li class="sm-code">47-1102</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:11</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-4">
+							<ul class="sm-lft">
+								<li class="sm-title">The Children Of Israel</li>
+								<li class="sm-code">47-1123</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:23</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-5">
+							<ul class="sm-lft">
+								<li class="sm-title">Experiences</li>
+								<li class="sm-code">47-1207</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 2:09</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-6">
+							<ul class="sm-lft">
+								<li class="sm-title">Experiences</li>
+								<li class="sm-code">47-1221</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:28</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-7">
+							<ul class="sm-lft">
+								<li class="sm-title">Prayer Line</li>
+								<li class="sm-code">48-0000</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:47</li>
+								<li class="sm-location">Unknown</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-8">
+							<ul class="sm-lft">
+								<li class="sm-title">Experiences</li>
+								<li class="sm-code">48-0302</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 2:28</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-9">
+							<ul class="sm-lft">
+								<li class="sm-title">The Angel of God</li>
+								<li class="sm-code">48-0304</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:17</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-10">
+							<ul class="sm-lft">
+								<li class="sm-title">At Thy Word, Lord</li>
+								<li class="sm-code">48-0305</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:56</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-11">
+							<ul class="sm-lft">
+								<li class="sm-title">I was not disobedient to the Heavenly vision</li>
+								<li class="sm-code">49-0718</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:11</li>
+								<li class="sm-location">Zion IL</li>
+							</ul>
+						</li><li class="sm-list" id="row-12">
+							<ul class="sm-lft">
+								<li class="sm-title">The Deity of Jesus Christ</li>
+								<li class="sm-code">49-1225</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:56</li>
+								<li class="sm-location">Jeffersonville IN</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-13">
+							<ul class="sm-lft">
+								<li class="sm-title">Diseases and Afflictions</li>
+								<li class="sm-code">50-0100</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:04</li>
+								<li class="sm-location">Louisville KY</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-14">
+							<ul class="sm-lft">
+								<li class="sm-title">Moses</li> 
+								<li class="sm-code">50-0110</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:44</li>
+								<li class="sm-location">Houston TX</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-15">
+							<ul class="sm-lft">
+								<li class="sm-title">Believest Thou this?</li>
+								<li class="sm-code">50-0115</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:57</li>
+								<li class="sm-location">Houston TX</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-16">
+							<ul class="sm-lft">
+								<li class="sm-title">Here we have no continuing city</li>
+								<li class="sm-code">50-0200</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:14</li>
+								<li class="sm-location">Little Rock AR</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-17">
+							<ul class="sm-lft">
+								<li class="sm-title">God in his people</li>
+								<li class="sm-code">50-0227</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:42</li>
+								<li class="sm-location">Little Rock AR</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-18">
+							<ul class="sm-lft">
+								<li class="sm-title">Gifts and callings are without repentance</li>
+								<li class="sm-code">50-0300</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:49</li>
+								<li class="sm-location">Carlsbad NM</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-19">
+							<ul class="sm-lft">
+								<li class="sm-title">Expectation</li>
+								<li class="sm-code">50-0405</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:37</li>
+								<li class="sm-location">New York NY</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-20">
+							<ul class="sm-lft">
+								<li class="sm-title">Baptismal service</li>
+								<li class="sm-code">50-0409</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:21</li>
+								<li class="sm-location">Jeffersonville IN</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-21">
+							<ul class="sm-lft">
+								<li class="sm-title">Ministry Explained</li>
+								<li class="sm-code">50-0711</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:52</li>
+								<li class="sm-location">Minneapolis MN</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-22">
+							<ul class="sm-lft">
+								<li class="sm-title">Obey the voice of the angel</li>
+								<li class="sm-code">50-0713</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:55</li>
+								<li class="sm-location">Minneapolis MN</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-23">
+							<ul class="sm-lft">
+								<li class="sm-title">At thy word</li>
+								<li class="sm-code">50-0714</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:48</li>
+								<li class="sm-location">Minneapolis MN</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-24">
+							<ul class="sm-lft">
+								<li class="sm-title">Led by the spirit</li>
+								<li class="sm-code">50-0715</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:58</li>
+								<li class="sm-location">Minneapolis MN</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-25">
+							<ul class="sm-lft">
+								<li class="sm-title">Belivesth thou this?</li>
+								<li class="sm-code">50-0716</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:32</li>
+								<li class="sm-location">Minneapolis MN</li>
+							</ul>
+						</li><li class="sm-list" id="row-26">
+							<ul class="sm-lft">
+								<li class="sm-title">Healing and what sickness is</li>
+								<li class="sm-code">50-0808</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:25</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-27">
+							<ul class="sm-lft">
+								<li class="sm-title">Expectations</li>
+								<li class="sm-code">50-0810</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:33</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-28">
+							<ul class="sm-lft">
+								<li class="sm-title">The pool of bethesda</li> 
+								<li class="sm-code">50-0811</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:00</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-29">
+							<ul class="sm-lft">
+								<li class="sm-title">The resurrection of lazarus</li>
+								<li class="sm-code">50-0813A</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:50</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-30">
+							<ul class="sm-lft">
+								<li class="sm-title">God revealing himself to his people</li>
+								<li class="sm-code">50-0813E</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:23</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						
+						<li class="sm-list" id="row-31">
+							<ul class="sm-lft">
+								<li class="sm-title">Testimony</li>
+								<li class="sm-code">50-0814</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:05</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-32">
+							<ul class="sm-lft">
+								<li class="sm-title">Who is God?</li>
+								<li class="sm-code">50-0815</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:05</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-33">
+							<ul class="sm-lft">
+								<li class="sm-title">Looking to the unseen</li>
+								<li class="sm-code">50-0816</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:56</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-34">
+							<ul class="sm-lft">
+								<li class="sm-title">It shall be even as it was told me</li>
+								<li class="sm-code">50-0818</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:33</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-35">
+							<ul class="sm-lft">
+								<li class="sm-title">Show us the father and it suffices</li>
+								<li class="sm-code">50-0819</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:16</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-36">
+							<ul class="sm-lft">
+								<li class="sm-title">My life story</li>
+								<li class="sm-code">50-0820A</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 2:21</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-37">
+							<ul class="sm-lft">
+								<li class="sm-title">Believe ye that I am able to do this</li>
+								<li class="sm-code">50-0820e</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:27</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-38">
+							<ul class="sm-lft">
+								<li class="sm-title">The angel and the commission</li>
+								<li class="sm-code">50-0821</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:19</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-39">
+							<ul class="sm-lft">
+								<li class="sm-title">Faith without works is dead</li>
+								<li class="sm-code">50-0822</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:24</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-40">
+							<ul class="sm-lft">
+								<li class="sm-title">Testimony</li>
+								<li class="sm-code">50-0823</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:21</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li><li class="sm-list" id="row-41">
+							<ul class="sm-lft">
+								<li class="sm-title">To whom is the arm of the Lord revealed?</li>
+								<li class="sm-code">50-0824</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:48</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-42">
+							<ul class="sm-lft">
+								<li class="sm-title">Prodigal</li>
+								<li class="sm-code">50-0827A</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:31</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-43">
+							<ul class="sm-lft">
+								<li class="sm-title">Take the rod and gather the people</li> 
+								<li class="sm-code">50-0827E</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:21</li>
+								<li class="sm-location">Cleveland OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-44">
+							<ul class="sm-lft">
+								<li class="sm-title">The works that i do bear witness of me</li> 
+								<li class="sm-code">51-0413</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:04</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-45">
+							<ul class="sm-lft">
+								<li class="sm-title">The Angel of the Lord</li> 
+								<li class="sm-code">51-0414</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:49</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-46">
+							<ul class="sm-lft">
+								<li class="sm-title">Life story</li>
+								<li class="sm-code">50-0415A</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:50</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-47">
+							<ul class="sm-lft">
+								<li class="sm-title">The hour is come</li>
+								<li class="sm-code">51-0415E</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:00</li>
+								<li class="sm-location">Phoenix AZ</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-48">
+							<ul class="sm-lft">
+								<li class="sm-title">Exhortation of divine healing</li>
+								<li class="sm-code">51-0501</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:16</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-49">
+							<ul class="sm-lft">
+								<li class="sm-title">The Angel of the Lord</li>
+								<li class="sm-code">51-0502</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:36</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-50">
+							<ul class="sm-lft">
+								<li class="sm-title">As I was with moses</li>
+								<li class="sm-code">51-0503</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:18</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-51">
+							<ul class="sm-lft">
+								<li class="sm-title">My commision</li>
+								<li class="sm-code">51-0505</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:37</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-52">
+							<ul class="sm-lft">
+								<li class="sm-title">Believesth thou this?</li>
+								<li class="sm-code">51-0506A</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:59</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-53">
+							<ul class="sm-lft">
+								<li class="sm-title">At thy word</li>
+								<li class="sm-code">51-0506E</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:53</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-54">
+							<ul class="sm-lft">
+								<li class="sm-title">Expectations</li>
+								<li class="sm-code">51-0507</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:42</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-55">
+							<ul class="sm-lft">
+								<li class="sm-title">Faith is the substance</li>
+								<li class="sm-code">51-0508</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:15</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-56">
+							<ul class="sm-lft">
+								<li class="sm-title">Testimony</li>
+								<li class="sm-code">51-0509</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:53</li>
+								<li class="sm-location">Los Angeles CA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-57">
+							<ul class="sm-lft">
+								<li class="sm-title">Expectation</li>
+								<li class="sm-code">51-0714</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:35</li>
+								<li class="sm-location">Flint MI</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-58">
+							<ul class="sm-lft">
+								<li class="sm-title">The Manifestation of the spirit</li>
+								<li class="sm-code">51-0707</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:22</li>
+								<li class="sm-location">Toledo OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-59">
+							<ul class="sm-lft">
+								<li class="sm-title">The Angel of the Lord</li>
+								<li class="sm-code">51-0718</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:56</li>
+								<li class="sm-location">Toledo OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-60">
+							<ul class="sm-lft">
+								<li class="sm-title">Who hath believed our report</li>
+								<li class="sm-code">51-0719</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:19</li>
+								<li class="sm-location">Toledo OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-61">
+							<ul class="sm-lft">
+								<li class="sm-title">The Angel of God</li>
+								<li class="sm-code">51-0720</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:06</li>
+								<li class="sm-location">Toledo OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-62">
+							<ul class="sm-lft">
+								<li class="sm-title">Life of demons, And visions</li>
+								<li class="sm-code">51-0721</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:38</li>
+								<li class="sm-location">Toledo OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-63">
+							<ul class="sm-lft">
+								<li class="sm-title">Life story</li>
+								<li class="sm-code">51-0722A</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 2:00</li>
+								<li class="sm-location">Toledo OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-64">
+							<ul class="sm-lft">
+								<li class="sm-title">The second Miracle</li>
+								<li class="sm-code">51-0722E</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 0:22</li>
+								<li class="sm-location">Toledo OH</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-65">
+							<ul class="sm-lft">
+								<li class="sm-title">The church of the living God</li>
+								<li class="sm-code">51-0727</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:47</li>
+								<li class="sm-location">Erie PA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-66">
+							<ul class="sm-lft">
+								<li class="sm-title">Three witnesses</li>
+								<li class="sm-code">51-0728</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:48</li>
+								<li class="sm-location">Erie PA</li>
+							</ul>
+						</li>
+						<li class="sm-list" id="row-67">
+							<ul class="sm-lft">
+								<li class="sm-title">The resurrection of lazarus</li>
+								<li class="sm-code">51-0802</li>
+							</ul>
+							<ul class="sm-rt">
+								<li class="sm-duration">Time: 1:37</li>
+								<li class="sm-location">Erie PA</li>
+							</ul>
+						</li>
+
+					</ol>
+				</div>
+				<div id="parentLoc" class="matched"></div>
+				<div id="matched" class="matched"></div>
+				
+			</section>
+		</section>
+	</section>
+	<section class="main-1" id="main-fill">
+		<section class="hdr">
+			<header>
+				<div class="hdr-ico dark-grey">
+					<div class="icons icon-start">
+						<div class="ico" id="books">
+							<span class="fa fa-book"></span>
+						</div>
+						<div class="ico">
+							<span class="fa fa-search"></span>
+						</div>
+					</div>
+
+					<div class="icons icon-end">
+						<div class="ico">
+							<span class="fa fa-globe"></span>
+						</div>
+						<div class="ico">
+							<span class="fa fa-bars"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="sermon-info light-grey">
+					<div class="srm-hdr">
+						<span id="date-code">47-0412</span>
+						<span> &nbsp;&nbsp;-&nbsp;&nbsp;</span>
+						<span id="sermon-title">Faith is the substance</span>
+					</div>
+				</div>
+			</header>
+		</section>
+
+		<section class="sermon">
+			<div id="body">
+				<header>
+					<h1 id="title">Faith is the substance</h1>
+					<h2 id="code">47-0412</h2>
+					<h3 id="globe">Oakland CA</h3>
+				</header>
+				<div id="wrapper">
+					<p>
+						<span class="ParagraphNumber">´E-1·</span>Thank you, Brother Borders. You know, it's such a fine privilege of being among the people. And then being my first time in a Jewish synagogue, it's quite a rare treat for me. 
+					</p>
+					<p>
+						And then, understanding more of this--the order here of the--of these scrolls, and how they're taken care of, and so forth. It'd be a good time to come in sometime and have a healing service in this synagogue, and have the--the Jews, and... Thank you, brother. Thank you, very much.
+					</p>
+					<p>
+						I've always had a feeling for the Jewish people. Perhaps there's none here, but, this morning, but I have a feeling for them: always have. And I believe that someday the--the Gentile church will take the message to the Jew, as the Jew gave it to the Gentiles. I believe that with all my heart.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="pg-ft light-grey" id="ft">
+			<footer>
+				<div id="ft-top">
+					<div id="ctrl-wrap">
+						<div class="play-ctrl">
+							<div id="bw">
+								<div class="ctr-ico ctr-1">
+								</div>
+							</div>
+							<div id="play">
+								<div id="pause-ico" class="ctr-ico"></div>
+							</div>
+							<div id="fw">
+								<div class="ctr-ico ctr-2">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ft-ico-rt">
+						<span class="fa ft-ico"></span>
+					</div>
+				</div>
+				<div class="ft-last">
+					<div class="aud-play">
+						<span class="aud-start" id="currentTime">00:00:00</span>
+						<progress id='pb' class="aud-lever" value="0" max="">
+							<span class=""></span>
+						</progress>
+						<span class="aud-length">00:00:00</span>
+					</div>
+				</div>
+			</footer>
+		</section>
+	</section>
+</section>
+<script>
+	
+	
+</script>
+<script type="text/javascript">
+	document.addEventListener('DOMContentLoaded', function(){
+		$('li.sm-code').css({'color':'#81b7fb'})
+	})
+</script>
+<script src="script/all.js"></script>
+<script src="script/assignProp.js"></script>
+<!-- <script src="script/scrolling.js"></script> -->
+</body>
+</html>
