@@ -1,0 +1,14 @@
+# Do not track!
+
+fontawesome-free-5.15.3-web/
+icons/
+myicons/
+sermons/
+webfonts/
+document_data/
+*.txt
+*.psd
+*.png
+jquery-3.5.1.js
+m4a/
+sermon_track/
