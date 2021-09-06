@@ -173,25 +173,26 @@
 				parent.appendChild(listItem)
 			}
 		}
-		function toggleElem(elt) {
-			elt.forEach((i)=>{
-				i.addEventListener('click', function(){
-					for (let j=0; j<elt.length; j+=1) {
-						if (elt[j] !== i) elt[j].removeAttribute('style')
-					}
-					$(i).css({
-						"background": '#0271ff7a',
-						"color": '#fff',
-						"border": 'none'
-					})
-					fadOf()
-				})
-			})
-		}/*adds the required style for the clicked element,
-			and removes the style attribute for the non-clicked elements*/
+		// function toggleElem(elt) {
+		// 	elt.forEach((i)=>{
+		// 		i.addEventListener('click', function(){
+		// 			for (let j=0; j<elt.length; j+=1) {
+		// 				if (elt[j] !== i) elt[j].removeAttribute('style')
+		// 			}
+		// 			$(i).css({
+		// 				"background": '#0271ff7a',
+		// 				"color": '#fff',
+		// 				"border": 'none'
+		// 			})
+		// 			fadOf()
+		// 		})
+		// 	})
+		// }/*adds the required style for the clicked element,
+			// and removes the style attribute for the non-clicked elements*/
+		// toggleElem(listParent2.childNodes)
 
 		function generateYears() {
-			var max = 19;
+			var max = 5;
 			createDom(max, listParent)
 			
 			var nodes = listParent.childNodes;
@@ -200,24 +201,10 @@
 				nodes[j].innerHTML = yrIndex
 				yrIndex+=1
 			}
-			toggleElem(nodes)
+			// toggleElem(nodes)
 		}
 		generateYears()
 
-		function generateTitle() {
-			let title = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
-						'N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-			var max = title.length;
-
-			createDom(max, listParent2)
-
-			var nodes = listParent2.childNodes;
-			for (let j=0; j<nodes.length; j+=1) {
-				nodes[j].innerHTML = title[j]
-			}
-			toggleElem(nodes)
-		}
-		generateTitle()
 		
 		function generateDuration() {
 			let dur = ['0:00','0:30','1:00','1:30',
@@ -231,7 +218,7 @@
 			for (let j=0; j<nodes.length; j+=1) {
 				nodes[j].innerHTML = dur[j]
 			}
-			toggleElem(nodes)
+			// toggleElem(nodes)
 		}
 		generateDuration()
 		function popDom1() {
