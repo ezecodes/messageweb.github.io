@@ -496,4 +496,4 @@ function getXmlData(path) {
 	xhr.responseType = 'document'
 	xhr.send(null)
 }
-
+}())
