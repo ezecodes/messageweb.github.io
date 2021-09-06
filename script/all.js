@@ -100,7 +100,6 @@ function scrollFn(opt) {
 	dropDownList.forEach((i)=>{
 		i.onclick = function() {
 			fadOf()
-			// console.log('ll')
 			var val = i.innerHTML;
 			if ((/[0-9]:[0-9]/.test(val))) {
 				for (let i=0; i<opt.length; i+=1) {
@@ -253,8 +252,7 @@ function sortFn(listEle) {
 		for (let j=0; j<listArr.length; j+=1) {
 			if (sortedArr[i] === listArr[j].textContent) {
 				part = listArr.splice(j,1)
-				// orderedList.appendChild(part[0].parentElement.parentElement)
-				box.push(part[0].parentElement.parentElement)//push to var 'box'
+				box.push(part[0].parentElement.parentElement)
 			}
 		}
 	}
@@ -457,8 +455,6 @@ function searchHandler() {
 				if (elt.indexOf(term) !== -1 && matched.length <= 20) {
 					matched.push(listItem[i])
 					replaceDOM(matched, listParent)
-					
-					// elt.replace(new RegExp(term, "gi"), (match) => `<mark>${match}</mark>`)
 				} 
 			}
 		}
@@ -500,7 +496,4 @@ function getXmlData(path) {
 	xhr.responseType = 'document'
 	xhr.send(null)
 }
-function displaySermon(bdy, data) {
-	
-}
-}()); 
+
