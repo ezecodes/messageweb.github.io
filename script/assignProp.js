@@ -119,7 +119,6 @@
 		initSize = headerElt.style.fontSize;
 		window.onresize = function() {
 			assignH()
-			// window.location = window.location
 		}
 		assignH()
 		function assignH() {
@@ -140,7 +139,6 @@
 			mainFill.style.height = winHeight1 - 1 + 'px';
 		}
 		function reassignHeight(val) {
-			// if ($('#par'))
 			sermonList.style.height = (winHeight - val) + 'px';
 		}
 		
@@ -152,7 +150,6 @@
 			},300)
 		}
 		spanIco.addEventListener('click', function() {
-			// var classArr = Array.from(spanIco.classList)
 			var olist = document.querySelectorAll('.currentList')[0];
 			if (spanIco.classList.contains('close')) {
 				spanIco.classList.remove('close');
@@ -173,24 +170,6 @@
 				parent.appendChild(listItem)
 			}
 		}
-		// function toggleElem(elt) {
-		// 	elt.forEach((i)=>{
-		// 		i.addEventListener('click', function(){
-		// 			for (let j=0; j<elt.length; j+=1) {
-		// 				if (elt[j] !== i) elt[j].removeAttribute('style')
-		// 			}
-		// 			$(i).css({
-		// 				"background": '#0271ff7a',
-		// 				"color": '#fff',
-		// 				"border": 'none'
-		// 			})
-		// 			fadOf()
-		// 		})
-		// 	})
-		// }/*adds the required style for the clicked element,
-			// and removes the style attribute for the non-clicked elements*/
-		// toggleElem(listParent2.childNodes)
-
 		function generateYears() {
 			var max = 5;
 			createDom(max, listParent)
@@ -204,8 +183,6 @@
 			// toggleElem(nodes)
 		}
 		generateYears()
-
-		
 		function generateDuration() {
 			let dur = ['0:00','0:30','1:00','1:30',
 			'2:00','2:30','3:00','3:30','4:00']
@@ -311,8 +288,6 @@
 								var appended = globeList[e].parentElement.parentElement
 								var cloned = appended.cloneNode(true)
 								matched.appendChild(cloned)
-								// console.log('appended')
-								// if ()
 							}
 						}
 						$('#matched li.sm-code').css({'color': '#81b7fb'})
