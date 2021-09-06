@@ -17,7 +17,7 @@ ol,li {
 	width: 100%;
 	height: auto;
 	overflow: hidden;
-	font-family: calibri, 'Lucida Sans','Segoe UI',helvetica,arial;
+	font-family: 'Lucida Sans','Segoe UI',helvetica,arial;
 	display: flex;
 	flex-direction: row;
 	position: relative;
@@ -25,7 +25,6 @@ ol,li {
 
 .main-1,.side-page {
 	float: left;
-	/*display: inline-block;*/
 }
 .main-1 {
 	width: 100% !important;
@@ -37,7 +36,6 @@ ol,li {
 	justify-content: space-evenly;
     flex-wrap: nowrap;
     flex-direction: column;
-	/*float: left;*/
 }
 
 .hdr, .pg-ft {
@@ -57,7 +55,6 @@ ol,li {
 	}
 }
 .side-page {
-	/*width: all !important;*/
 	color: rgba(0,0,0,.7);
 	max-width: 500px;
 	min-width: 370px;
@@ -123,8 +120,6 @@ ol,li {
     position: relative;
     justify-content: center;
     align-items: center;
-    /* align-content: stretch; */
-    /* flex-wrap: nowrap; */
     flex-direction: row;
 }
 
@@ -171,7 +166,7 @@ ol,li {
 	width: 95%;
 	height: 25px;
 	border: 0;
-	font-size: 14px;
+	font-size: 13.9px;
 	outline: none;
 	display: block;
 	border-radius: 5px;
@@ -188,9 +183,8 @@ ol,li {
 	align-items: center;
 	/*display: none;*/
 }
-
 .scroll-opts span {
-	font-size: 20px;
+	font-size: 18px;
 	float: left;
 	text-align: center;
 }
@@ -206,9 +200,7 @@ ol,li {
 	display: none;
 	justify-content: center;
 }
-#tab01 span#locHeader {
-	/*margin-left: .5em;*/
-}
+
 #back.fa::before {
 	width: 10px;
 	margin-right: 20px;
@@ -266,7 +258,6 @@ ol,li {
 	margin-left: 3px;
 	padding-left: 2px;
 	background: #fff;
-	/*border: 2px solid rgba(0,0,0,.6);*/
 	border-radius: 2px 2px 3px 9px;
 	box-shadow: 0px 1px 4px 0px #acacb3;
 	position: absolute;
@@ -276,9 +267,7 @@ ol,li {
 	z-index: 999;
 	display: none;
 }
-.currentList {
-	/*display: block;*/
-}
+
 .common-list ol {
 	width: 100%;
 	margin: .5em auto;
@@ -331,10 +320,6 @@ ol,li {
 	/*display: none;*/
 }
 
-.sm-wrap ol > li {
-	
-	/*margin: 3px 0px 0px 5px;*/
-}
 aside.tophgt {
 	position: absolute;
     bottom: 0;
@@ -377,8 +362,8 @@ aside.tophgt {
 }
 
 li.sm-list {
-	height: 60px;
-	padding: 6px 10px;	
+	height: 63px;
+	padding: 7px 10px;	
 	width: 100%;
 	position: relative;
 	overflow: hidden;
@@ -397,16 +382,16 @@ li.sm-list:nth-child(even) {
 li.sm-list > ul {
 	float: left;
 	margin-right: 5px;
-	font-size: 14.6px;
+	font-size: 13.6px;
 }
 li.sm-list > ul li {
-	margin-bottom: 6px;
+	margin-bottom: 8px;
 }
 li.sm-list > ul {
 	color: rgba(0,0,0,.8);
 }
 ul.sm-lft {
-	width: 74%;
+	width: 60%;
 	text-transform: capitalize;
 	text-align: left;
 	margin-right: 10px;
@@ -423,7 +408,6 @@ ul.sm-rt {
 	text-align: right;
 }
 li.sm-list ul > :not(li:first-child) {
-	/*font-size: .8rem;*/
 	margin-top: 3px;
 }
 .globe {
@@ -443,10 +427,10 @@ li.sm-list ul > :not(li:first-child) {
 #parentLoc > li:nth-child(even) {
 	background: rgba(64, 64, 64, 0.07)
 }
-#parentLoc > :not(li.sm-list) {
+#parentLoc > li /*:not(li.sm-list)*/ {
 	height: 50px;
 	margin-bottom: 1px;
-	font-size: 18px;
+	font-size: 15.7px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -470,6 +454,20 @@ mark {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+}
+#nav_hide path {fill: #c3c3c3;}
+
+#nav_hide svg {
+    width: 23.1px;
+    height: 23.1px;
+}
+
+#nav_hide {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    display: none;
 }
 .sermon-index header > div.hdr-h1 {
 	justify-content: center;
@@ -513,7 +511,6 @@ mark {
 }
 .ico .fa::before {
 	overflow: hidden;
-	/*cursor: pointer;*/
 }
 .ico .fa.fa-book {
 	cursor: pointer;
@@ -537,18 +534,19 @@ mark {
 }
 
 .sermon-info {
-	font-size: 100%;
-    height: 30px;
-    text-align: center;
-    display: flex;
-    overflow: hidden;
-    align-items: center;
+	font-size: 90.9%;
+	height: 30px;
+	text-align: center;
+	font-weight: 600;
+	display: flex;
+	overflow: hidden;
+	letter-spacing: 2px;
+	align-items: center;
 }
 .sermon-info .srm-hdr {
 	width: 90%;
 	margin: 0 auto;
 	color: #707070b8;
-	font-weight: bold;
 	text-transform: capitalize;
 }
 .sermon {
@@ -562,8 +560,8 @@ mark {
     margin: 0 auto;
     margin-top: .5em;
 	padding: 1.2em 20px;
-    font-size: 2.4rem;
-    font-family: 'Lucida Bright';
+    font-size: 2.7rem;
+    color: #000;
     text-align: center;
     overflow: hidden;
     display: flex;
@@ -573,20 +571,19 @@ mark {
 }
 #body header > h1 {
 	text-transform: uppercase;
-	font-style: italic;
 }
 
 #wrapper {
 	width: 90%;
-	font-size: 2.4rem;
+	font-size: 2rem;
 	padding: 1em 5px;
 	margin: 0 auto;
-	line-height: 2px;
 	word-spacing: 4px;
 }
 #wrapper p {
 	color: rgba(0,0,0,.5);
 	margin-bottom: .5em;
+	line-height: 50px;
 }
 .pg-ft {
 	width: 100%;
@@ -715,43 +712,9 @@ progress {
 	transition: .5s ease;
 }
 .aud-play span {
-	/*position: absolute;*/
-	/*right: 0;*/
+	font-size: 95%;
 	width: 100px;
 }
-
-/*.pg-ft .play-ctrl {
-	width: 250px;
-	outline: solid;
-	height: 70px;
-	margin: 0 auto;
-	margin-top: 5px;
-	display: flex;
-	align-items: center;
-}
-.pg-ft .play-ctrl #bw,.play {
-	margin-inline-end: 20px;
-}
-.pg-ft .play-ctrl #bw,.play,#fw {
-	height: 40px;
-	width: 50px;
-	background: #777777;
-	border-radius: 150%;
-	justify-content: center;
-}
-.pg-ft #bw {
-	flex: 1;
-	margin-inline-start: 20px;
-}
-.pg-ft .play {
-	flex: 1;
-	height: 60px;
-	width: 60px;
-}
-.pg-ft #fw {
-	margin-inline-end: 20px;
-	flex: 1;
-}*/
 
 @media (any-hover: none) {
 	* {
@@ -809,7 +772,7 @@ progress {
 		font-size: 90% !important;
 	}
 	.sermon-index div.hdr-h1 h1 { 
-		font-size: 150%;
+		font-size: 130%;
 	}
 	.side-ico .fa {
 	    height: 43px;
@@ -824,12 +787,12 @@ progress {
 	}
 	.search-bar .input input {
 		height: 25px;
-		font-size: 94%;
+		font-size: 87%;
 		letter-spacing: 1.4px;
 		padding: 2px 5px;
 	}
 	.scroll-opts span {
-		font-size: 129%;
+		font-size: 115%;
 	}
 	.common-list li {
 		margin: 8px 2px 8px 15px;
@@ -839,7 +802,7 @@ progress {
 	    padding: 9px 10px;
 	}
 	li.sm-list > ul {
-	    font-size: 98%;
+	    font-size: 95%;
 	}	
 	.fa {
 		font-size: 32.5px;
@@ -887,6 +850,10 @@ progress {
 	
 }
 @media screen and (max-width: 768px) {
+	.side-page {
+		max-width: 360px;
+		min-width: 340px;
+	}
 	#body header {
     	margin-top: .9em;
 		font-size: 1.75rem;
@@ -997,8 +964,35 @@ progress {
 		font-size: 84%;
 	}
 }
+@media screen and (max-width: 344px) {
+	#nav_hide svg {
+	    width: 22.9px;
+	    height: 22.9px;
+	}
+
+	.side-ico .fa {
+	    height: 40px !important;
+	    width: 40px !important;
+	}
+	.side-ico :not(.fa-globe):before {
+	    font-size: 24px;
+	}
+	.side-ico .fa-globe::before {
+	    font-size: 38px;
+	    padding-bottom: 0;
+	    padding-left: 2px;
+
+	}
+	.scroll-opts span {
+    	font-size: 110%;
+    }
+}
+
+}
+
+/**/
 @media screen and (max-height: 580px) {
-	.common-list {
+	.common-list:nth-of-type(3n) {
 		height: 260px;	
 		overflow-y: scroll;
 	}
