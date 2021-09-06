@@ -19,7 +19,7 @@ var listMain = document.querySelectorAll('.sermon-list')[0],
 		this.a = document.querySelectorAll('#matched > li');
 		this.b = document.querySelectorAll('#matched > li > ul:first-child > li:last-of-type');//num
 		this.c = document.querySelectorAll('#matched > li > ul:first-child > li:first-child');//alpha
-	}
+	};
 
 	function getClientTop() {
 		var valArr = [];
@@ -28,8 +28,12 @@ var listMain = document.querySelectorAll('.sermon-list')[0],
 		}
 		return valArr
 	}
+
 	var valArr, isTrue;
+
 	books.addEventListener('click', function() {//hide or display the side page
+		const closeBtn = document.querySelector('#nav_hide')
+		const fillPage = document.querySelector('#main-fill')
 		setTimeout(function() {
 			$(sidePage).removeClass('fadeOut')
 		},300);
@@ -37,6 +41,37 @@ var listMain = document.querySelectorAll('.sermon-list')[0],
 		if (sidePage.classList.contains('show')) {
 			sidePage.classList.remove('show') 
 		} else {
+			const setInitialState = ()=> {
+
+			}
+			const changeW = (winWidth1)=> {
+				if (winWidth1 <= 646) {
+					sidePage.style.minWidth = '100vw'
+					sidePage.style.display = 'initial'
+					fillPage.style.display = 'none'
+					closeBtn.style.display = 'block'
+
+				} else {
+					sidePage.style.minWidth = '340px'
+					fillPage.style.display = 'flex'
+					closeBtn.style.display = 'none'
+				}
+			}
+			changeW(window.innerWidth)
+			closeBtn.addEventListener('click', ()=> {
+				sidePage.classList.remove('show')
+				sidePage.style.display = 'none'
+				fillPage.style.display = 'flex'
+
+			})
+			window.onresize = ()=> {
+				var winWidth1 = window.innerWidth;
+				changeW(winWidth1)
+				if (winWidth1 > 646) {
+					sidePage.minWidth = '350px'
+					fillPage.style.display = 'flex'
+				}
+			}
 			sidePage.classList.add('show');
 			if (!isTrue) {
 				valArr = getClientTop()
@@ -55,9 +90,17 @@ window.onload = function() {
 function scrollFn(opt) {
 	var commonList = document.querySelectorAll('.common-list.currentList')[0];
 	var dropDownList = commonList.querySelectorAll('ol > li')
-
+	function fadOf() {
+		$('.common-list.currentList').addClass('fadeOut')
+		spanIco.classList.add('close');
+		setTimeout(function() {
+			$('.common-list.currentList').css({'display':'none'})
+		},300)
+	}
 	dropDownList.forEach((i)=>{
 		i.onclick = function() {
+			fadOf()
+			// console.log('ll')
 			var val = i.innerHTML;
 			if ((/[0-9]:[0-9]/.test(val))) {
 				for (let i=0; i<opt.length; i+=1) {
@@ -182,7 +225,7 @@ function addClassName() {
 					$('.sm-wrap').removeAttr('style')
 					$('#parentLoc').css({'display': 'none'})
 					$('.scroll-opts').css({'display': 'flex'})
-					$('.opts01').css({'display': 'flex'})
+					$('.opts01').css({'display': 'initial'})
 					document.querySelector('#matched').replaceChildren()
 					input.setAttribute('placeholder','Search Date or Title');
 					input.value = inp
@@ -196,7 +239,7 @@ function addClassName() {
 		})
 	})
 }
-
+var dump, isClicked = false;
 function sortFn(listEle) {
 	var box = [], arr = [], part;
 
@@ -225,11 +268,43 @@ function sortFn(listEle) {
 			}
 		}
 	})()
+	dump = sortedArr
+}
+function createDom(val, parent) {
+	var l = val.length
+	for (let i=0; i<l; i+=1) {
+		var listItem = document.createElement('li');
+		listItem.textContent = val[i]
+		parent.appendChild(listItem)
+	}
+}
+function genAplhaOpts(txtFrom) {
+	var alphaArr = [];
+	function sliced() {
+		var slicedArr = []
+		for (let i=0; i<txtFrom.length; i+=1) {
+			slicedArr.push(txtFrom[i].slice(0,1))
+		}
+		return slicedArr
+	}
+	var _sliced = sliced(), i = 0
+
+	for (; i<_sliced.length; i+=1) {
+		if (_sliced[i] === _sliced[i+1]) {
+			continue
+		} else {
+			alphaArr.push(_sliced[i])
+		}
+	}
+	createDom(alphaArr, $('#list2 > ol')[0])
+	isClicked = true
 }
 function sortTitles() {
 	var listElemtsTitle = orderedList.querySelectorAll('li.sm-list > ul:first-child > li:first-child');
 	sortFn(listElemtsTitle)
 	document.querySelector("#spanIco").innerHTML = '&nbsp;Title';
+	if (!isClicked) genAplhaOpts(dump)
+	
 }
 
 function sortYears() {
@@ -391,8 +466,8 @@ function searchHandler() {
 	
 }//searchHandler function
 
-var hdrCode = document.querySelector('#date-code'),
-	hdrTitle = document.querySelector('#sermon-title');
+var hdrCode = $('#date-code')[0],
+	hdrTitle = $('#sermon-title')[0];
 // getXmlData(`${hdrCode} ${hdrTitle}`)
 
 function displaySermonDetails(listChild) {//update sermon header information
@@ -400,26 +475,27 @@ function displaySermonDetails(listChild) {//update sermon header information
 		i.addEventListener('click', ()=>{
 			document.querySelectorAll('.sermon')[0].scrollTop = 0;
 			// console.log(i)
-			var title = i.querySelectorAll('.sm-title')[0].innerHTML,
-				code = i.querySelectorAll('.sm-code')[0].innerHTML;
+			var title = i.querySelectorAll('.sm-title')[0].textContent,
+				code = i.querySelectorAll('.sm-code')[0].textContent;
 			hdrCode.innerHTML = code;
 			hdrTitle.innerHTML =  title;
 			$('#title').text = title
 			$('#code').text = code
 			$('#globe').text = i.querySelectorAll('.sm-location')[0].innerHTML
 			// getXmlData(`${code} ${title}`)
+			console.log(`${code.toLowerCase()} ${title.toLowerCase()}`)
 		})
 	})
 }
 displaySermonDetails(document.querySelectorAll('#oList > li'))
 
-var sermonContainer = document.querySelector('#body')
+// var sermonContainer = document.querySelector('#body')
 function getXmlData(path) {
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function() {
-		displaySermon(sermonContainer, xhr.responseXML)
+		// displaySermon($('#body')[0], xhr.responseXML)
 	}
-	var url = `document_data/${path}.xml`;
+	var url = `../${path}.xml`;
 	xhr.open('GET', url + ((/\?/).test(url) ? "&" : '?' + (new Date()).getTime()))
 	xhr.responseType = 'document'
 	xhr.send(null)
