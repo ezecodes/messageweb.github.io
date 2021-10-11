@@ -1,4 +1,5 @@
 (function() {
+
 	'use strict';
 	var sidePage = document.querySelector('#sd-pg'),
 	books=document.querySelector('#books'), 
@@ -19,97 +20,14 @@
 	playIco = document.querySelector('#play'),
 	fw = document.querySelector('#fw'),
 	sermonList = document.querySelectorAll('.sermon-list')[0],
-	bw = document.querySelector('#bw');
-
+	bw = document.querySelector('#bw'),
+	int1;
 	var pb = document.querySelector('#pb');
 	var icoAudio = playIco.querySelector('div');
 	var topVal = document.querySelector('#wrapper > p:first-child').getBoundingClientRect().top;
-
-	playIco.addEventListener('click', function() {
-		var elt = document.querySelector('#audio');
-		if (icoAudio.id === 'pause-ico') {
-			icoAudio.id = 'playing';
-			if (!document.querySelector('#audio')) {//checks if the audio element exits
-				var audioElt = document.createElement('audio');
-				audioElt.src = 'm4a/62-0621B The Path Of Life VGR.m4a';
-				audioElt.id = 'audio';
-				document.body.appendChild(audioElt)
-				audioElt.play()
-				document.querySelectorAll('.sermon')[0].scrollTop = topVal;
-				this.style.background = '#0271ff7a'				
-			} else {
-				elt.play()
-				this.style.background = '#0271ff7a'				
-			}
-		} else if (icoAudio.id === 'playing') {
-				this.removeAttribute('style')				
-			icoAudio.id = 'pause-ico';
-			if (document.querySelector('#audio')) {
-				elt.pause()
-			}
-		}
-		document.querySelector('#audio').addEventListener('playing', function () {
-			handlePlaying(this)
-			updateCurrentTime(this)
-			pb.setAttribute('max', Math.floor(this.duration))
-			getAudioLength(document.querySelectorAll('.aud-length')[0], this.duration)
-
-			pb.addEventListener('click', function(e) {
-				var elt = document.querySelector('#audio');
-				var pos = (e.pageX  - (this.offsetLeft + this.offsetParent.offsetLeft)) / this.offsetWidth;
-	   			elt.currentTime = pos * elt.duration;
-			})
-		})
-		document.querySelector('#audio').onended = function() {
-			icoAudio.id = 'pause-ico';
-		}
-	})
-	
-
-	/** Handle Audio Playback **/
-	function getAudioLength(ele, duration) {
-		//converts audio duration(secs) to hr:min:sec format
-		var sec, dur, hr, rem, min, dotPos, t;
-		dur = Math.floor(duration);
-		hr = Math.floor(dur / 3600);
-		rem = dur % 3600;
-		min = rem / 60;
-		dotPos = min.toString().indexOf('.');
-		if ((dur % 60) === 0) {
-		  sec = 0
-		} else {
-			sec = Math.round((Number(min.toString().slice(dotPos, dotPos+4))) * 60)
-		}
-		min = Math.floor(min)
-		t = `${(hr.toString().length < 2) ? hr = '0' + hr : hr = hr}:${(min.toString().length < 2) ? min = '0' + min : min = min}:${(sec.toString().length < 2) ? sec = '0' + sec : sec = sec}`
-
-		ele.textContent = t
-	}
-	function handlePlaying(_this) {
-		setInterval(function() {
-			pb.setAttribute('value', Math.floor(_this.currentTime))
-		},1000)
-
-	}
-	function updateCurrentTime(_this) {
-		setInterval(()=>{
-			getAudioLength(document.querySelector('#currentTime'), _this.currentTime)
-		},1000)
-	}
-	function updatePB(val) {
-		if (document.querySelector('#audio')) {
-			var aud = document.querySelector('#audio')
-			audio.currentTime += val
-			pb.setAttribute('value', Math.floor(document.querySelector('#audio').currentTime))
-		}
-	}
-	fw.addEventListener('click', function() {
-		updatePB(10)
-	})
-	bw.addEventListener('click', function() {
-		updatePB(-10)
-	})
-	/**  **/
+	var audioPath = `${$('.sm-code')[0].innerHTML} ${$('.sm-title')[0].innerHTML}`;
+	var hdrCode = $('#date-code')[0],
+		hdrTitle = $('#sermon-title')[0];
 
 	function setProp(){
 
@@ -121,26 +39,29 @@
 			assignH()
 		}
 		assignH()
+		function reassignHeight(val) {
+			sermonList.style.height = (winHeight - val) + 'px';
+		}
 		function assignH() {
-			reassignHeight(182)
+			reassignHeight(215)
 
 			var winHeight1 = window.innerHeight, 
 			winWidth1 = window.innerWidth;
 
 			if (winHeight1 < 380) {
 				headerElt.style.height = 'auto';
+				headerElt.style.display = 'block';
 			} else {
-				var addedH = (document.querySelectorAll('.hdr > header')[0].getBoundingClientRect().height + document.querySelector('#ft').getBoundingClientRect().height); 
+				var addedH = (document.querySelectorAll('.hdr > header')[0].getBoundingClientRect().height 
+					+ ft.getBoundingClientRect().height); 
 
 				headerElt.style.height = winHeight1 - Math.round(addedH) - 30 + 'px'
 			}
 			
-			sidePage.style.height = winHeight1 + 'px';
+			sidePage.style.height = '100vh';
 			mainFill.style.height = winHeight1 - 1 + 'px';
 		}
-		function reassignHeight(val) {
-			sermonList.style.height = (winHeight - val) + 'px';
-		}
+		
 		
 		function fadOf() {
 			$('.common-list.currentList').addClass('fadeOut')
@@ -180,7 +101,6 @@
 				nodes[j].innerHTML = yrIndex
 				yrIndex+=1
 			}
-			// toggleElem(nodes)
 		}
 		generateYears()
 		function generateDuration() {
@@ -195,7 +115,6 @@
 			for (let j=0; j<nodes.length; j+=1) {
 				nodes[j].innerHTML = dur[j]
 			}
-			// toggleElem(nodes)
 		}
 		generateDuration()
 		function popDom1() {
@@ -274,7 +193,7 @@
 						
 						input.value = ''
 						input.dispatchEvent(new KeyboardEvent('keyup'))
-						reassignHeight(182)
+						reassignHeight(215)
 						 sermonList.scrollTop = 0;
 
 						$('#searchField').attr('placeholder', 'Search Date or Title');
@@ -304,7 +223,7 @@
 						},400)
 						
 						$('#back').on('click', function() {
-							reassignHeight(140)
+							reassignHeight(170)
 							locDiv.style.display = 'block';
 
 							matched.replaceChildren()
