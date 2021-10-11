@@ -1,8 +1,6 @@
-// var arrList = Array.from(listElemts)
-// var listPrt = orderedList.parentNode.querySelectorAll('ol > li');
 
 (function() {
-	// bg(document.querySelectorAll('#oList > li:not(li.hidden)'))
+
 "use strict"
 var listMain = document.querySelectorAll('.sermon-list')[0],
 	orderedList = document.querySelector('#oList'),
@@ -13,78 +11,83 @@ var listMain = document.querySelectorAll('.sermon-list')[0],
 	input = document.querySelector('#searchField'),
 	sidePage = document.querySelector('#sd-pg'),
 	books=document.querySelector('#books'),
-	winHeigth = window.innerHeight;
-	function vals() {
-		this.matchedDiv = document.querySelector('#matched');
-		this.a = document.querySelectorAll('#matched > li');
-		this.b = document.querySelectorAll('#matched > li > ul:first-child > li:last-of-type');//num
-		this.c = document.querySelectorAll('#matched > li > ul:first-child > li:first-child');//alpha
-	};
+	winHeight = window.innerHeight,
+	playIco = document.querySelector('#play'),
+	icoAudio = playIco.querySelector('div'),
+	winWidth = ()=> {return window.innerWidth};
 
-	function getClientTop() {
-		var valArr = [];
-		for (let l=0; l<parent.length; l+=1) {
-			valArr.push(parent[l].getBoundingClientRect().top - 182)
+function vals() {
+	this.matchedDiv = document.querySelector('#matched');
+	this.a = document.querySelectorAll('#matched > li');
+	this.b = document.querySelectorAll('#matched > li > ul:first-child > li:last-of-type');//num
+	this.c = document.querySelectorAll('#matched > li > ul:first-child > li:first-child');//alpha
+};
+
+function getClientTop() {
+	var valArr = [];
+	for (let l=0; l<parent.length; l+=1) {
+		valArr.push(parent[l].getBoundingClientRect().top - 215)
+	}
+	return valArr
+}
+
+var valArr, isTrue;
+
+books.addEventListener('click', function() {//hide or display the side page
+	const closeBtn = document.querySelector('#nav_hide')
+	const fillPage = document.querySelector('#main-fill')
+	setTimeout(function() {
+		$(sidePage).removeClass('fadeOut')
+	},300);
+
+	if (sidePage.classList.contains('show')) {
+		sidePage.classList.remove('show') 
+	} else {
+		const setInitialState = ()=> {
+
 		}
-		return valArr
+		const changeW = (viewportWidth)=> {
+			if (viewportWidth <= 646) {
+				sidePage.style.minWidth = '100vw'
+				sidePage.style.display = 'initial'
+				fillPage.style.display = 'none'
+				closeBtn.style.display = 'block'
+
+			} else {
+				sidePage.style.minWidth = '380px'
+				fillPage.style.display = 'flex'
+				closeBtn.style.display = 'none'
+			}
+		}
+		changeW(winWidth())
+		closeBtn.addEventListener('click', ()=> {
+			sidePage.classList.remove('show')
+			sidePage.style.display = 'none'
+			fillPage.style.display = 'flex'
+
+		})
+		window.onresize = ()=> {
+			changeW(winWidth())
+			if (winWidth() > 646) {
+				sidePage.minWidth = '350px'
+			}
+		}
+		sidePage.classList.add('show');
+		if (!isTrue) {
+			valArr = getClientTop()
+			isTrue = true
+		}
 	}
 
-	var valArr, isTrue;
-
-	books.addEventListener('click', function() {//hide or display the side page
-		const closeBtn = document.querySelector('#nav_hide')
-		const fillPage = document.querySelector('#main-fill')
-		setTimeout(function() {
-			$(sidePage).removeClass('fadeOut')
-		},300);
-
-		if (sidePage.classList.contains('show')) {
-			sidePage.classList.remove('show') 
-		} else {
-			const setInitialState = ()=> {
-
-			}
-			const changeW = (winWidth1)=> {
-				if (winWidth1 <= 646) {
-					sidePage.style.minWidth = '100vw'
-					sidePage.style.display = 'initial'
-					fillPage.style.display = 'none'
-					closeBtn.style.display = 'block'
-
-				} else {
-					sidePage.style.minWidth = '340px'
-					fillPage.style.display = 'flex'
-					closeBtn.style.display = 'none'
-				}
-			}
-			changeW(window.innerWidth)
-			closeBtn.addEventListener('click', ()=> {
-				sidePage.classList.remove('show')
-				sidePage.style.display = 'none'
-				fillPage.style.display = 'flex'
-
-			})
-			window.onresize = ()=> {
-				var winWidth1 = window.innerWidth;
-				changeW(winWidth1)
-				if (winWidth1 > 646) {
-					sidePage.minWidth = '350px'
-					fillPage.style.display = 'flex'
-				}
-			}
-			sidePage.classList.add('show');
-			if (!isTrue) {
-				valArr = getClientTop()
-				isTrue = true
-			}
-		}
-
-		scrollFn($('li.sm-code'))
-	})
-	var inp = input.value;
+	scrollFn($('li.sm-code'))
+})
+var inp = input.value;
 window.onload = function() {
 	searchHandler()
 	addClassName()
+	setTimeout(()=>{
+		$('.ld').css({position: 'initial', zIndex: 0})
+	},100)
 	// scrollFn($('li.sm-code'))
 }
 function scrollFn(opt) {
@@ -101,31 +104,31 @@ function scrollFn(opt) {
 		i.onclick = function() {
 			fadOf()
 			var val = i.innerHTML;
-			if ((/[0-9]:[0-9]/.test(val))) {
+			if ((/[0-9]:[0-9]/.test(val))) {//scrolling to duration
 				for (let i=0; i<opt.length; i+=1) {
-					var dur = opt[i].innerHTML.slice(6)
-					if (val === dur) {//normall linear search
-						listMain.scrollTop = valArr[i] - 5
+					const dur = opt[i].innerHTML
+					if (val === dur) {
+						listMain.scrollTop = valArr[i]
 						break
 					}else if (val < dur) {
-						listMain.scrollTop = valArr[i] - 5
+						listMain.scrollTop = valArr[i]
 						break
 					}
 				}
 			}
-			if (val.charCodeAt() <= 57) {//scrolling year
+			if (val.charCodeAt() <= 57) {//scrolling to year
 				var valView = i.textContent.slice(2);
 				for (let i=0; i<opt.length; i+=1) {
 					var slc = opt[i].textContent.slice(0,2)
 					if (slc === valView) {
-						listMain.scrollTop = valArr[i] - 5
+						listMain.scrollTop = valArr[i]
 						break
 					}
 				}
-			}else {//scrolling title
+			}else {//scrolling to title
 				for (let i=0; i<opt.length; i+=1) {
 					if (val === opt[i].innerHTML.charAt(0)) {
-						listMain.scrollTop = valArr[i] - 5
+						listMain.scrollTop = valArr[i]
 						break
 					}
 				}
@@ -208,7 +211,7 @@ function addClassName() {
 				}
 				if (this === iconElements[3]) {
 
-					document.querySelectorAll('.sermon-list')[0].style.height = (window.innerHeight - 142) + 'px';
+					listMain.style.height = winHeight - 170 + 'px';;
 					$('.sm-wrap').css({'display':'none'});
 					$('#parentLoc').css({'display': 'block'});
 					$('.scroll-opts').css({'display': 'none'})
@@ -220,7 +223,7 @@ function addClassName() {
 				} 
 				if (this !== iconElements[3]) {
 					$('#tab01').removeAttr('style')
-					document.querySelectorAll('.sermon-list')[0].style.height = (window.innerHeight - 182) + 'px';
+					listMain.style.height = winHeight - 215 + 'px';
 					$('.sm-wrap').removeAttr('style')
 					$('#parentLoc').css({'display': 'none'})
 					$('.scroll-opts').css({'display': 'flex'})
@@ -228,6 +231,7 @@ function addClassName() {
 					document.querySelector('#matched').replaceChildren()
 					input.setAttribute('placeholder','Search Date or Title');
 					input.value = inp
+					listChild.set([...parent])
 				}
 				setTimeout(()=>{
 					$('#oList').removeClass('fadeIn')
@@ -337,14 +341,10 @@ function higherOrder() {
 	}
 	if (iconElements[3].classList.contains('currentBg')) {
 		sortYears()
-		// rmvStyleAttr(document.querySelectorAll('li.sm-list > ul :not(.sm-location)'))
-		// $('li.sm-location').css({"color": '#81b7fb'})
-		// scrollFn($('li.sm-location'))
 	}
 }
 function replaceDOM(matched, ele) {
 	var length = matched.length;
-	// ele = orderedList;
 	ele.replaceChildren()
 	for (let i=0; i<length; i+=1) {
 		//creates the list element and its childnodes
@@ -384,6 +384,7 @@ function replaceDOM(matched, ele) {
 		ul02.appendChild(listLocation)
 	}
 	higherOrder()//resort the append list according to the current sort functions
+	// console.log(smList)
 }
 function innerLoop(fc, e) {
 	e.replaceChildren()
@@ -407,14 +408,71 @@ function resetChildren() {
 			})
 		}
 	}
+	// listChild.set([...parent])
 		
 }//checks if the input value is empty then 
 //replace with the former list
 
-var init;
+var listChild = {
+	val: [...parent],
+	set(elts) {
+		this.val = elts
+	},
+	get() {
+		return this.val
+	}
+};
 
+function displaySermonDetails() {//add click event Listener to lists
+	listChild.get().forEach((i)=>{
+		i.addEventListener('click', ()=>{
+			const title = i.querySelectorAll('.sm-title')[0].textContent
+			const code = i.querySelectorAll('.sm-code')[0].textContent
+
+			const hdrCode = $('#date-code')[0]
+			const hdrTitle = $('#sermon-title')[0]
+
+			hdrCode.textContent = code
+			hdrTitle.textContent = title
+
+			getXmlData(`${code} ${title}`)
+		})
+	})
+}
+displaySermonDetails()
+getXmlData('47-0412 Faith Is The Substance')//once the page loads
+
+function appendToPage(format) {
+	var parser = new DOMParser();
+    var doc = parser.parseFromString(format, "text/html");
+	const t = $('#title')[0]
+	const c = $('#code')[0]
+	const g = $('#globe')[0]
+	const wrap = $('#wrapper')[0]
+	const body = doc.querySelectorAll('body p')
+    t.innerHTML = doc.querySelectorAll('.title')[0].innerHTML
+    c.innerHTML = doc.querySelectorAll('.date')[0].innerHTML
+    g.innerHTML = doc.querySelectorAll('.place')[0].innerHTML
+    wrap.replaceChildren()
+    body.forEach((i)=>{
+    	i.innerHTML = i.innerHTML.replace(/�/g, ' ')
+    	wrap.appendChild(i)
+    })
+}
+function getXmlData(path) {
+	const url = `document_data/${path}.htm`;
+	fetch(url).then((res)=>{
+		if (res.status === 200) {
+			return res.text()
+		}
+	}).then((format)=>{
+		appendToPage(format)
+	})
+}
+var init;
 document.querySelector('#parentLoc').onclick = function() {
-	displaySermonDetails(document.querySelectorAll('#matched > li'))
+	listChild.set([...document.querySelectorAll('#matched > li')])
+	displaySermonDetails()
 	init = new vals // <<< vals() constructor function is at the top ^
 	matchedInitLi = [...init.a]
 }//this function grabs the initial nodes, when location list is clicked
@@ -423,18 +481,20 @@ function searchHandler() {
 
 	input.addEventListener('input' , function(e) {
 		
-		var query = input.value.toLowerCase();
+		const query = input.value.toLowerCase();
 		if (!iconElements[3].classList.contains('currentBg')) {
 			inp = input.value
 			searchIndexer(query, parent, listNum, listAlpha, orderedList)
-			displaySermonDetails(document.querySelectorAll('#oList > li'))
-		} 
+			listChild.set([...document.querySelectorAll('#oList > li')])
+		} //searching the main sermon list
 		else {
 			if (input.getAttribute('placeholder') === 'Search Date or Title') {
 				searchIndexer(query, init.a, init.b, init.c, init.matchedDiv)
-				displaySermonDetails(document.querySelectorAll('#matched > li'))
-			}
+				listChild.set([...document.querySelectorAll('#matched > li')])
+			} //searching the location indexed sermon lists
 		} 
+		displaySermonDetails()
+
 	})
 
 	function searchIndexer(term, listItem, listEleNum, listEleAlpha, listParent) {
@@ -462,38 +522,4 @@ function searchHandler() {
 	
 }//searchHandler function
 
-var hdrCode = $('#date-code')[0],
-	hdrTitle = $('#sermon-title')[0];
-// getXmlData(`${hdrCode} ${hdrTitle}`)
-
-function displaySermonDetails(listChild) {//update sermon header information
-	listChild.forEach((i)=>{
-		i.addEventListener('click', ()=>{
-			document.querySelectorAll('.sermon')[0].scrollTop = 0;
-			// console.log(i)
-			var title = i.querySelectorAll('.sm-title')[0].textContent,
-				code = i.querySelectorAll('.sm-code')[0].textContent;
-			hdrCode.innerHTML = code;
-			hdrTitle.innerHTML =  title;
-			$('#title').text = title
-			$('#code').text = code
-			$('#globe').text = i.querySelectorAll('.sm-location')[0].innerHTML
-			// getXmlData(`${code} ${title}`)
-			console.log(`${code.toLowerCase()} ${title.toLowerCase()}`)
-		})
-	})
-}
-displaySermonDetails(document.querySelectorAll('#oList > li'))
-
-// var sermonContainer = document.querySelector('#body')
-function getXmlData(path) {
-	var xhr = new XMLHttpRequest();
-	xhr.onload = function() {
-		// displaySermon($('#body')[0], xhr.responseXML)
-	}
-	var url = `../${path}.xml`;
-	xhr.open('GET', url + ((/\?/).test(url) ? "&" : '?' + (new Date()).getTime()))
-	xhr.responseType = 'document'
-	xhr.send(null)
-}
 }())
