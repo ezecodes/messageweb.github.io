@@ -131,7 +131,7 @@
 		}
 		
 		function getAudioLength(ele, duration) {
-			//converts audio duration(secs) to hr:min:sec format
+			//converts audio duration(from secs) to hr:min:sec format
 			
 			var sec, dur, hr, rem, min, dotPos, t;
 			dur = Math.floor(duration);
